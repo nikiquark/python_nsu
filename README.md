@@ -13,6 +13,7 @@ GRANT ALL PRIVILEGES ON DATABASE python_nsu TO python_nsu;
 DB_USER = 'user'
 DB_PASSWORD = 'password'
 DB_NAME = 'name'
+DJANGO_SECRET = django.core.management.utils.get_random_secret_key()
 ```
 
 

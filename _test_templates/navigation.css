@@ -24,7 +24,9 @@ body{
     box-sizing: initial;
     border-left: 5px solid var(--theme-color);
     background: var(--theme-color);
-    transition: width 0.5s;
+    
+    transition-property: width, height;
+    transition-duration: 0.5s;
     overflow-x: hidden;
     user-select: none;
     /* font-size: 20px; */
@@ -166,4 +168,68 @@ body{
     background: var(--theme-color);
     border-top-right-radius: 10px;
 }
-
+#menu-toggle-phone{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.toggle__phone{
+    display: none;
+}
+ion-icon{
+    pointer-events: none;
+}
+@media (max-width: 500px){
+    .toggle{
+        display: none;
+    }
+    .navigation{
+        overflow-y: scroll;
+        width: 70px;
+    }
+    .navigation ul{
+        padding-top: 5px;
+    }
+    .toggle__phone{
+        display: block;
+        background-color: var(--theme-color);
+        height: 60px;
+        min-width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        color: #fff;
+        border-radius: 50%;
+        position: relative;
+        left: -5px;
+        font-size: 3em;
+    }
+    .toggle__phone__open-btn{
+        display: block;
+    }
+    .toggle__phone__close-btn{
+        display: none;
+    }
+    #menu-toggle-phone:checked ~ .navigation ul li .toggle__phone .toggle__phone__open-btn{
+        display: none;
+    }
+    #menu-toggle-phone:checked ~ .navigation ul li .toggle__phone .toggle__phone__close-btn{
+        display: block;
+    }
+    #menu-toggle-phone:checked ~ .navigation{
+        height: 70px;
+        overflow-y: hidden;
+    }
+    .navigation::after{
+        display: none;
+    }
+}
+@media (max-height: 600px){
+    .navigation::after{
+        display: none;
+    }
+    
+}
